@@ -76,7 +76,7 @@ public class lab4 {
         System.out.println(String.join("-", strings));
     }
 
-    public void Exercise2() {
+    public void Exercise2() { //without built-in functions
         LinkedList<Integer> list1 = new LinkedList<>();
         LinkedList<Integer> list2 = new LinkedList<>();
         Scanner scanner = new Scanner(System.in);
@@ -134,7 +134,7 @@ public class lab4 {
         System.out.println("Merged and sorted list: "+ list1);
     }
 
-    public void Exercise3() {
+    public void Exercise3() { //without built-in functions
         LinkedList<Integer> list3 = new LinkedList<>();
         System.out.println("Exercise 3.\nEnter the list you want to reverse: ");
         Scanner scanner = new Scanner(System.in);
