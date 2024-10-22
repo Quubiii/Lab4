@@ -160,7 +160,7 @@ class Main {
         lab4 lab4 = new lab4();
 
         while (true) {
-            System.out.println("Which exercise do you want me to start?\n[all/1/2/3/stop]");
+            System.out.println("Which exercise do you want me to start? Type [all/1/2/3/stop]");
             String choice = tsetse.nextLine();
 
             if (choice.equalsIgnoreCase("all")) {
