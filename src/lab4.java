@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class lab4 {
 
-    public void bSort(int[] array) {
+    public void bSort(int[] array) { //bubble sort algorithm for arrays
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1 - i; j++) {
                 if (array[j] > array[j + 1]) {
@@ -16,7 +16,7 @@ public class lab4 {
         }
     }
 
-    public void bSort(LinkedList<Integer> list) {
+    public void bSort(LinkedList<Integer> list) { //bubble sort algorithm for LinkedList
         int size = list.size();
 
         for (int n = 0; n < size - 1; n++) {
@@ -33,8 +33,16 @@ public class lab4 {
     }
 
     public boolean checkListValidity(String input) {
-        if (input.length() != 5 || !input.matches("[0-9]+")) {
+        if (input.length() != 5 || !input.matches("[0-9]+")) { //java construction to check if something matches 0-9
             System.out.println("You MUST enter exactly 5 integers (digits 0-9).");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkListEx3(String input) {
+        if(!input.matches("[0-9]+")) {
+            System.out.println("You MUST enter the list of INTEGERS (digits 0-9).");
             return false;
         }
         return true;
@@ -68,7 +76,7 @@ public class lab4 {
         System.out.println(String.join("-", strings));
     }
 
-    public LinkedList<Integer> Exercise2() {
+    public void Exercise2() {
         LinkedList<Integer> list1 = new LinkedList<>();
         LinkedList<Integer> list2 = new LinkedList<>();
         Scanner scanner = new Scanner(System.in);
@@ -82,7 +90,7 @@ public class lab4 {
 
         int[] numbers = new int[5];
         for (int i = 0; i < 5; i++) {
-            numbers[i] = input1.charAt(i) - '0';
+            numbers[i] = input1.charAt(i) - '0'; //char => int
         }
 
         bSort(numbers);
@@ -124,19 +132,53 @@ public class lab4 {
         bSort(list1);
 
         System.out.println("Merged and sorted list: "+ list1);
-        return list1;
     }
 
-    public void Exercise3(LinkedList<Integer> list1) {
-        System.out.println("Exercise 3:");
-        reverseLinkedList(list1);
-        System.out.println("Reversed list: "+ list1);
-    }
+    public void Exercise3() {
+        LinkedList<Integer> list3 = new LinkedList<>();
+        System.out.println("Exercise 3.\nEnter the list you want to reverse: ");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
+        while (!checkListEx3(input)) {
+            input = scanner.nextLine();
+        }
+
+        for (int i = 0; i < input.length(); i++) {
+            int digit = input.charAt(i) - '0'; //char => int
+            list3.add(digit);
+        }
+
+        reverseLinkedList(list3);
+        System.out.println("Reversed list: " + list3);
+    }
+}
+
+class Main {
     public static void main(String[] args) {
+        Scanner tsetse = new Scanner(System.in);
         lab4 lab4 = new lab4();
-        lab4.Exercise1();
-        LinkedList<Integer> list1 = lab4.Exercise2();
-        lab4.Exercise3(list1);
+
+        while (true) {
+            System.out.println("Which exercise do you want me to start?\n[all/1/2/3/stop]");
+            String choice = tsetse.nextLine();
+
+            if (choice.equalsIgnoreCase("all")) {
+                lab4.Exercise1();
+                lab4.Exercise2();
+                lab4.Exercise3();
+            } else if (choice.equals("1")) {
+                lab4.Exercise1();
+            } else if (choice.equals("2")) {
+                lab4.Exercise2();
+            } else if (choice.equals("3")) {
+                lab4.Exercise3();
+            } else if (choice.equalsIgnoreCase("stop")) {
+                System.out.println("Exiting the program...");
+                break;
+            } else {
+                System.out.println("Invalid choice. Please try again.");
+            }
+        }
     }
 }
