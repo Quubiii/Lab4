@@ -68,7 +68,7 @@ public class lab4 {
         while (true) {
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("stop")) {
-                break;
+                break; //unikac break
             }
             strings.add(input);
         }
