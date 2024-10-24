@@ -245,7 +245,7 @@ class Main {
                 lab4.Exercise6();
             } else if (choice.equalsIgnoreCase("stop")) {
                 System.out.println("Exiting the program...");
-                break;
+                break; //try to avoid break
             } else {
                 System.out.println("Invalid choice. Please try again.");
             }
